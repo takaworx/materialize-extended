@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/takaworx/vue-materialize/issues"
   },
-  "homepage": "https://github.com/takaworx/vue-materialize#readme"
+  "homepage": "https://github.com/takaworx/vue-materialize#readme",
+  "devDependencies": {
+    "materialize-css": "^1.0.0-rc.2"
+  }
 }
