@@ -1,0 +1,23 @@
+{
+  "name": "vue-materialize",
+  "version": "0.1.0",
+  "description": "A lightweight vueJS wrapper for materialize library",
+  "main": "src/vue-materialize.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/takaworx/vue-materialize.git"
+  },
+  "keywords": [
+    "vue",
+    "materialize"
+  ],
+  "author": "Neil Borbon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/takaworx/vue-materialize/issues"
+  },
+  "homepage": "https://github.com/takaworx/vue-materialize#readme"
+}
