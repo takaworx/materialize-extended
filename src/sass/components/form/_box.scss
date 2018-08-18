@@ -1,0 +1,26 @@
+.input-field.box {
+  & input,
+  & textarea {
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 24px 12px 11px;
+    line-height: 1.33333333rem;
+    background-color: rgba(#000, 0.06);
+  }
+  & input + label,
+  & textarea + label {
+    left: 12px;
+    line-height: 1.3333333rem;
+    transform: translateY(19px);
+  }
+  & input + label.active,
+  & textarea + label.active {
+    transform: translateY(8px) scale(0.8);
+  }
+  & input {
+    height: 56px;
+  }
+  & textarea {
+    min-height: 56px;
+  }
+}
