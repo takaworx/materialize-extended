@@ -5,7 +5,13 @@ ul.material-stepper {
     padding-right: 0px;
     padding-bottom: 8px;
     border-radius: 4px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
     background-color: $stepper-bg-color;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 3px 1px -2px rgba(0, 0, 0, 0.12),
+                0 1px 5px 0 rgba(0, 0, 0, 0.2);
   }
   & > li {
     & {
@@ -16,19 +22,19 @@ ul.material-stepper {
     .stepper-title {
       & {
         width: 100%;
-        height: 48px;
+        height: 60px;
         line-height: 1rem;
         position: relative;
         display: inline-block;
-        padding: 16px 48px 16px 60px;
+        padding: 16px 48px 32px 60px;
         color: $stepper-title-color;
         border-bottom: none;
+        background-color: transparent;
       }
       & .title-summary {
         display: block;
         font-weight: 400;
         font-size: 0.75rem;
-        line-height: 0.75rem;
         color: $stepper-title-summary-color;
       }
     }
@@ -46,6 +52,9 @@ ul.material-stepper {
       color: $stepper-icon-color;
       content: counter(listIndex);
       background-color: $stepper-icon-bg-color;
+    }
+    .stepper-title:hover {
+      background-color: rgba(#000, 0.06);
     }
     .stepper-content {
       & {

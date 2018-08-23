@@ -1,39 +1,59 @@
-let Stepper = (elem, options) => {
-  let headers = elem.querySelectorAll('.stepper-title')
-  let contents = elem.querySelectorAll('.stepper-content')
+import Helper from '../helper'
 
-  let classes = elem.className ? elem.className.split(" ") : []
-
-  if (classes.indexOf('collapsible') < 0) {
-    classes.push('collapsible')
-    elem.className = classes.join(" ")
+class Stepper {
+  constructor(el, options) {
+    this.el = el
+    this.options = options
+    this.children = this.el.children
+    this.collapsible = this.initialize()
   }
 
-  for (var i = 0; i < headers.length; i++) {
-    let classes = headers[i].className ? headers[i].className.split(" ") : []
+  open(index) {
+    Helper(this.children[index]).removeClass('completed')
+    this.collapsible.open(index)
+  }
 
-    if (classes.indexOf('collapsible-header') >= 0) {
-      continue
+  close(index) {
+    this.collapsible.close(index)
+  }
+
+  complete(index) {
+    Helper(this.children[index]).addClass('completed')
+    
+    let nextIndex = index + 1;
+
+    if (nextIndex < this.children.length) {
+      this.open(nextIndex)
+    } else {
+      this.close(index)
     }
-
-    classes.push('collapsible-header')
-    headers[i].className = classes.join(" ")
   }
 
-  for (var i = 0; i < contents.length; i++) {
-    let classes = contents[i].className ? contents[i].className.split(" ") : []
+  /**
+   *  Initialize the component
+   */
+  initialize() {
+    let headers = this.el.querySelectorAll('.stepper-title')
+    let contents = this.el.querySelectorAll('.stepper-content')
+  
+    for (var i = 0; i < headers.length; i++) {
+      headers[i].dataset.stepperIndex = i;
 
-    if (classes.indexOf('collapsible-body') >= 0) {
-      continue
+      headers[i].addEventListener('click', (e) => {
+        this.open(e.currentTarget.getAttribute('data-stepper-index'))
+      })
+  
+      Helper(headers[i]).addClass('collapsible-header', 'waves-effect')
     }
-
-    classes.push('collapsible-body')
-    contents[i].className = classes.join(" ")
+  
+    for (var i = 0; i < contents.length; i++) {
+      Helper(contents[i]).addClass('collapsible-body')
+    }
+  
+    let collapsible = M.Collapsible.init(this.el, {})
+  
+    return collapsible
   }
-
-  let collapsible = M.Collapsible.init(elem, {})
-
-  return collapsible
 }
 
 export default Stepper;
