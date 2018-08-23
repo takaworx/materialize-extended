@@ -29,6 +29,10 @@ class Stepper {
     }
   }
 
+  error(index) {
+    Helper(this.children[index]).removeClass('completed').addClass('error')
+  }
+
   /**
    *  Initialize the component
    */

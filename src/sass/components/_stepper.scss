@@ -93,6 +93,19 @@ ul.material-stepper {
       font-family: "Material Icons";
     }
   }
+  & > li.error {
+    .stepper-title,
+    .stepper-title:before,
+    .stepper-title .title-summary {
+      color: $error-color;
+    }
+    .stepper-title:before {
+      content: "report_problem";
+      font-size: 24px;
+      font-family: "Material Icons";
+      background-color: transparent;
+    }
+  }
   & > li:not(:last-child):before {
     top: 48px;
     left: 36px;
