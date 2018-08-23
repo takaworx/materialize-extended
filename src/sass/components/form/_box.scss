@@ -8,13 +8,16 @@
     background-color: rgba(#000, 0.06);
   }
   & input + label,
-  & textarea + label {
+  & textarea + label,
+  & .select-wrapper + label {
     left: 12px;
+    font-size: 1rem;
     line-height: 1.3333333rem;
     transform: translateY(19px);
   }
   & input + label.active,
-  & textarea + label.active {
+  & textarea + label.active,
+  & .select-wrapper + label {
     transform: translateY(8px) scale(0.8);
   }
   & input {
@@ -22,5 +25,8 @@
   }
   & textarea {
     min-height: 56px;
+  }
+  & .select-wrapper + label {
+    top: -4px;
   }
 }
