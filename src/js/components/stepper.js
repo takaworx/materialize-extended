@@ -3,12 +3,30 @@ import Helper from '../helper'
 class Stepper {
   constructor(el, options) {
     this.el = el
+    this.on = this.on
     this.options = options
     this.children = this.el.children
     this.collapsible = this.initialize()
   }
 
+  on(e, handler) {
+    this.el.addEventListener(e, handler);
+  }
+
   open(index) {
+    let openEvent = new CustomEvent('open', {
+      detail: {
+        index,
+      },
+      cancelable: true,
+    })
+
+    this.el.dispatchEvent(openEvent)
+
+    if (openEvent.defaultPrevented) {
+      return false;
+    }
+
     Helper(this.children[index]).removeClass('completed')
     this.collapsible.open(index)
   }
@@ -18,6 +36,7 @@ class Stepper {
   }
 
   complete(index) {
+    Helper(this.children[index]).removeClass('error')
     Helper(this.children[index]).addClass('completed')
     
     let nextIndex = index + 1;
@@ -33,9 +52,6 @@ class Stepper {
     Helper(this.children[index]).removeClass('completed').addClass('error')
   }
 
-  /**
-   *  Initialize the component
-   */
   initialize() {
     let headers = this.el.querySelectorAll('.stepper-title')
     let contents = this.el.querySelectorAll('.stepper-content')
