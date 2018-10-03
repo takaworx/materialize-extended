@@ -4,8 +4,8 @@ mix.options({
     publicPath: 'public',
 });
 
-mix.js('src/js/vue-materialize.js', 'public/js')
-   .sass('src/sass/vue-materialize.scss', 'public/css');
+mix.js('src/js/materialize-extended.js', 'public/js')
+   .sass('src/sass/materialize-extended.scss', 'public/css');
 
 if (mix.inProduction()) {
    mix.version();
