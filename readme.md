@@ -1,3 +1,3 @@
-## Vue-Materialize
+## Materialize-Extended
 
-A lightweight vueJS wrapper for materialize library
+An extension of the materialize library that adds useful components

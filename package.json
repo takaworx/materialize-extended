@@ -2,7 +2,7 @@
   "name": "vue-materialize",
   "version": "0.1.0",
   "description": "A lightweight vueJS wrapper for materialize library",
-  "main": "src/js/vue-materialize.js",
+  "main": "src/js/materialize-extended.js",
   "scripts": {
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -14,18 +14,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/takaworx/vue-materialize.git"
+    "url": "https://github.com/takaworx/materialize-extended.git"
   },
   "keywords": [
-    "vue",
     "materialize"
   ],
   "author": "Neil Borbon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/takaworx/vue-materialize/issues"
+    "url": "https://github.com/takaworx/materialize-extended/issues"
   },
-  "homepage": "https://github.com/takaworx/vue-materialize#readme",
+  "homepage": "https://github.com/takaworx/materialize-extended#readme",
   "dependencies": {
     "materialize-css": "^1.0.0-rc.2"
   },
