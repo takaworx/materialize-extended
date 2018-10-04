@@ -1,0 +1,29 @@
+.db {
+  width: 100%;
+  display: block;
+}
+.di {
+  display: inline;
+}
+.dib {
+  width: auto;
+  display: inline-block;
+}
+
+@each $breakpoint_name, $breakpoint in $breakpoints {
+  @if $breakpoint_name != "s" {
+    @media (min-width: $breakpoint) {
+      .db-#{$breakpoint_name} {
+          width: 100%;
+          display: block;
+      }
+      .di-#{$breakpoint_name} {
+          display: inline;
+      }
+      .dib-#{$breakpoint_name} {
+          width: auto;
+          display: inline-block;
+      }
+    }
+  }
+}

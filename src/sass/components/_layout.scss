@@ -1,0 +1,106 @@
+$sizes: (
+    0: 0px,
+    1: 4px,
+    2: 8px,
+    3: 16px,
+    4: 24px,
+    5: 32px,
+    6: 40px,
+    7: 48px,
+    8: 56px,
+    9: 64px,
+    10: 72px,
+    11: 80px,
+    12: 88px,
+);
+
+@each $breakpoint_name, $breakpoint in $breakpoints {
+    @each $side, $side_value in $sides {
+        @each $size_name, $size in $sizes {
+            @if $breakpoint_name == "s" {
+                @if $side == "all" {
+                    .mxy#{$size_name} {
+                        margin: $size;
+                    }
+                    .pxy#{$size_name} {
+                        padding: $size;
+                    }
+                }
+                @else if $side == "y" {
+                    .m#{$side}#{$size_name} {
+                        margin-top: $size;
+                        margin-bottom: $size;
+                    }
+                    .p#{$side}#{$size_name} {
+                        padding-top: $size;
+                        padding-bottom: $size;
+                    }
+                }
+                @else if $side == "x" {
+                    .m#{$side}#{$size_name} {
+                        margin-left: $size;
+                        margin-right: $size;
+                    }
+                    .p#{$side}#{$size_name} {
+                        padding-left: $size;
+                        padding-right: $size;
+                    }
+                }
+                @else {
+                    .m#{$side}#{$size_name} {
+                        margin-#{$side_value}: $size;
+                    }
+                    .p#{$side}#{$size_name} {
+                        padding-#{$side_value}: $size;
+                    }
+                }
+            }
+            @else {
+                @if $side == "all" {
+                    @media (min-width: $breakpoint) {
+                        .mxy#{$size_name}-#{$breakpoint_name} {
+                            margin: $size;
+                        }
+                        .pxy#{$size_name}-#{$breakpoint_name} {
+                            padding: $size;
+                        }
+                    }
+                }
+                @else if $side == "y" {
+                    @media (min-width: $breakpoint) {
+                        .m#{$side}#{$size_name}-#{$breakpoint_name} {
+                            margin-top: $size;
+                            margin-bottom: $size;
+                        }
+                        .p#{$side}#{$size_name}-#{$breakpoint_name} {
+                            padding-top: $size;
+                            padding-bottom: $size;
+                        }
+                    }
+                }
+                @else if $side == "x" {
+                    @media (min-width: $breakpoint) {
+                        .m#{$side}#{$size_name}-#{$breakpoint_name} {
+                            margin-left: $size;
+                            margin-right: $size;
+                        }
+                        .p#{$side}#{$size_name}-#{$breakpoint_name} {
+                            padding-left: $size;
+                            padding-right: $size;
+                        }
+                    }
+                }
+                @else {
+                    @media (min-width: $breakpoint) {
+                        .m#{$side}#{$size_name}-#{$breakpoint_name} {
+                            margin-#{$side_value}: $size;
+                        }
+                        .p#{$side}#{$size_name}-#{$breakpoint_name} {
+                            padding-#{$side_value}: $size;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

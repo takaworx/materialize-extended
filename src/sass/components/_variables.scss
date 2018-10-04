@@ -10,3 +10,22 @@ $stepper-title-summary-color: rgba(#000, 0.38);
 $stepper-icon-color: #fff;
 $stepper-icon-bg-color: rgba(#000, 0.38);
 $stepper-icon-active-bg-color: $secondary-color;
+
+// 2. Breakpoints
+$breakpoints: (
+  "s": 0px,
+  "m": 601px,
+  "l": 993px,
+  "x": 1200px,
+);
+
+// 3. Sides
+$sides: (
+  "all": "all",
+  "y": "y",
+  "x": "x",
+  "t": "top",
+  "r": "right",
+  "b": "bottom",
+  "l": "left"
+);
