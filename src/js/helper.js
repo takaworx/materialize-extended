@@ -1,3 +1,13 @@
+function hasClass(el, name) {
+  let classes = el.className ? el.className.split(" ") : []
+
+  if (classes.indexOf(name) >= 0) {
+    return true;
+  }
+
+  return false;
+}
+
 function addClass(el, ...names) {
   let classes = el.className ? el.className.split(" ") : []
 
@@ -30,6 +40,10 @@ function removeClass(el, ...names) {
 
 export default (el) => {
   this.el = el
+
+  this.hasClass = (name) => {
+    return hasClass(this.el, name)
+  }
 
   this.addClass = (...names) => {
     addClass(this.el, names)

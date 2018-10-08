@@ -9,19 +9,8 @@ class Stepper {
     this.collapsible = this.initialize()
   }
 
-  on(e, handler) {
-    this.el.addEventListener(e, handler);
-  }
-
   open(index) {
-    let openEvent = new CustomEvent('open', {
-      detail: {
-        index,
-      },
-      cancelable: true,
-    })
-
-    this.el.dispatchEvent(openEvent)
+    let openEvent = this.broadcastEvent('open', { index })
 
     if (openEvent.defaultPrevented) {
       return false;
@@ -32,10 +21,22 @@ class Stepper {
   }
 
   close(index) {
+    let closeEvent = this.broadcastEvent('close', { index })
+
+    if (closeEvent.defaultPrevented) {
+      return false;
+    }
+
     this.collapsible.close(index)
   }
 
   complete(index) {
+    let complete = this.broadcastEvent('complete', { index })
+
+    if (complete.defaultPrevented) {
+      return false;
+    }
+
     Helper(this.children[index]).removeClass('error')
     Helper(this.children[index]).addClass('completed')
     
@@ -52,6 +53,44 @@ class Stepper {
     Helper(this.children[index]).removeClass('completed').addClass('error')
   }
 
+  on(e, handler) {
+    this.el.addEventListener(e, handler);
+  }
+
+  expand(index) {
+    let expandEvent = this.broadcastEvent('expand', { index })
+
+    if (expandEvent.defaultPrevented) {
+      return false;
+    }
+
+    this.open(index)
+  }
+
+  broadcastEvent(name, detail) {
+    let newEvent = new CustomEvent(name, {
+      detail,
+      cancelable: true,
+    })
+
+    this.el.dispatchEvent(newEvent)
+
+    return newEvent
+  }
+
+  current() {
+    let current = 0;
+
+    for (let key in this.children) {
+      if (Helper(this.children[key]).hasClass('active')) {
+        current = key
+        break
+      }
+    }
+
+    return current
+  }
+
   initialize() {
     let headers = this.el.querySelectorAll('.stepper-title')
     let contents = this.el.querySelectorAll('.stepper-content')
@@ -60,7 +99,7 @@ class Stepper {
       headers[i].dataset.stepperIndex = i;
 
       headers[i].addEventListener('click', (e) => {
-        this.open(e.currentTarget.getAttribute('data-stepper-index'))
+        this.expand(e.currentTarget.getAttribute('data-stepper-index'))
       })
   
       Helper(headers[i]).addClass('collapsible-header', 'waves-effect')

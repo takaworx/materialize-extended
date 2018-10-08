@@ -1,6 +1,6 @@
 {
   "name": "materialize-extended",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "A lightweight vueJS wrapper for materialize library",
   "main": "src/js/materialize-extended.js",
   "scripts": {
