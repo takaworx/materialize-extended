@@ -1,0 +1,13 @@
+ul.input-field-select-options {
+  margin: 0;
+
+  li {
+    padding: 8px 16px;
+
+    label {
+      input[type="radio"] + span {
+        display: block;
+      }
+    }
+  }
+}

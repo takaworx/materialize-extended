@@ -29,6 +29,7 @@
     "materialize-css": "^1.0.0-rc.2"
   },
   "devDependencies": {
+    "babel-preset-stage-2": "^6.24.1",
     "laravel-mix": "^2.1.11"
   }
 }

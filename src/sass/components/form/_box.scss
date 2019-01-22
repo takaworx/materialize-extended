@@ -1,15 +1,28 @@
 .input-field.box {
   & input,
-  & textarea {
+  & textarea,
+  & div.input-field-select {
     border-radius: 4px;
     box-sizing: border-box;
     padding: 24px 12px 11px;
     line-height: 1.33333333rem;
     background-color: rgba(#000, 0.06);
   }
+  & input,
+  & div.input-field-select {
+    height: 56px;
+  }
+  & textarea {
+    min-height: 56px;
+  }
+  & div.input-field-select {
+    margin: 0 0 8px;
+    -webkit-margin-collapse: separate;
+  }
   & input + label,
   & textarea + label,
-  & .select-wrapper + label {
+  & .select-wrapper + label,
+  & div.input-field-select + label {
     left: 12px;
     font-size: 1rem;
     line-height: 1.3333333rem;
@@ -17,14 +30,9 @@
   }
   & input + label.active,
   & textarea + label.active,
-  & .select-wrapper + label {
+  & .select-wrapper + label,
+  & div.input-field-select + label.active {
     transform: translateY(8px) scale(0.8);
-  }
-  & input {
-    height: 56px;
-  }
-  & textarea {
-    min-height: 56px;
   }
   & .select-wrapper + label {
     top: -4px;
