@@ -37,4 +37,8 @@
   & .select-wrapper + label {
     top: -4px;
   }
+  & .select-wrapper {
+    display: inline-block;
+    width: 100%;
+  }
 }
